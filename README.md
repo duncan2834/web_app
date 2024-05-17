@@ -6,10 +6,10 @@ THÀNH VIÊN:
 - HOÀNG NGỌC HÀO
 - TRẦN KIM THÀNH
 # HƯỚNG DẪN
-1.Clone về
-Commands :
-  -py -m venv venv
-  -venv\Scripts\activate
-  -pip install -r requirements.txt
-  -py manage.py runserver
+CLONE REPO VỀ
+COMMANDS : (chạy môi trường ảo và install các gói trong requirement)
+  - py -m venv venv
+  - venv\Scripts\activate
+  - pip install -r requirements.txt
+  - manage.py runserver
 
