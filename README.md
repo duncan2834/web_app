@@ -5,4 +5,11 @@ THÀNH VIÊN:
 - TRỊNH MINH HIẾU
 - HOÀNG NGỌC HÀO
 - TRẦN KIM THÀNH
-# WEB BÁN GIÀY
+# HƯỚNG DẪN
+1.Clone về
+Commands :
+  py -m venv venv
+  venv\Scripts\activate
+  pip install -r requirements.txt
+  py manage.py runserver
+
