@@ -1,1 +1,8 @@
-# web_app
+# BÀI TẬP LỚN: THỰC HÀNH PHÁT TRIỂN HỆ THỐNG TRÍ TUỆ NHÂN TẠO 
+
+THÀNH VIÊN: 
+- TRẦN HỒNG ĐĂNG
+- TRỊNH MINH HIẾU
+- HOÀNG NGỌC HÀO
+- TRẦN KIM THÀNH
+# WEB BÁN GIÀY
