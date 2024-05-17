@@ -12,4 +12,7 @@ COMMANDS : (chạy môi trường ảo và install các gói trong requirement)
   - venv\Scripts\activate
   - pip install -r requirements.txt
   - manage.py runserver
-
+# ADMIN LOGIN
+http://127.0.0.1:8000/admin
+username: dang@a.com 
+pass: dang
