@@ -8,8 +8,8 @@ THÀNH VIÊN:
 # HƯỚNG DẪN
 1.Clone về
 Commands :
-  py -m venv venv
-  venv\Scripts\activate
-  pip install -r requirements.txt
-  py manage.py runserver
+  -py -m venv venv
+  -venv\Scripts\activate
+  -pip install -r requirements.txt
+  -py manage.py runserver
 
