@@ -14,15 +14,19 @@
           {% if not products %}
             <div class="col-12">There are currently no products active</div>
           {% else %}
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+          <div class="row row-cols-3 row-cols-sm-4 row-cols-md-3 g-1">
             {% for product in products %}
-            <div class="col">
-              <div class="card border-0">
+            <div class="col border-0">
+              <div class="">
                 <div class="box-image">
                 {% for image in product.product_image.all %}
               {% if image.is_feature%}
-              <img class="img-fluid" alt="Responsive image" src="{{ image.image.url }}"
+              <a class="text-dark text-decoration-none"
+              href="{{ product.get_absolute_url }}">
+                <img class="img-fluid" alt="Responsive image" src="{{ image.image.url }}"
                 alt="{{ image.image.alt_text }}">
+              </a>
+              
               {% endif %}
               {% endfor %}
                 </div>
@@ -44,6 +48,10 @@
       <div class="">
         <div>
           <h1 class="h3">Brand</h1>
+          {% for brand in product_type %}
+            <h1>alo</h1>
+            <div class="fw-bold">{{brand.name}}</div>
+          {% endfor %}
         </div>
         <div>
           <p></p>

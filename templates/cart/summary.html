@@ -3,15 +3,7 @@
 {% block title %}Cart Summary{%endblock %}
 {% block content %}
 
-<div class="container">
-  <div class="col-12">
-    <h1 class="h2">Your Cart</h1>
-  </div>
-  <div class="col-12">
-    <p>Manage your <b>items</b> in your cart</p>
-  </div>
-  <hr />
-</div>
+
 <div class="container">
   <div class="row g-3">
     {% if cart|length == 0 %}
@@ -47,11 +39,11 @@
     </div>
     <div class="col-md-5 col-lg-4 order-md-last p-0 order-3">
       <div class="d-grid gap-2 ">
-        <a role="button" href="{% url "payment:cart" %}" class="btn btn-success fw-bold" type="button">Checkout</a>
-        <button class="btn btn-light" type="button">Save for later</button>
+        <a role="button" href="{% url "payment:cart" %}" class="btn btn-black fw-bold btn-mgl" type="button">Checkout</a>
+        <button class="btn btn-light btn-mgl" type="button">Save for later</button>
       </div>
     </div>
-    <div class="col-md-7 col-lg-8 p-0">
+    <div class="col-md-7 col-lg-8 p-0" id="product-cart">
       {% for item in cart %}
       {% with product=item.product %}
       <div class="card mb-3 border-0 product-item" data-index="{{product.id}}">
@@ -78,9 +70,17 @@
                 <option value="">4</option>
               </select>
               <a type="button" id="update-button" data-index="{{product.id}}"
-                class="update-button text-decoration-none small ps-3">Update</a>
+                class="update-button text-decoration-none small ps-3">
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="20px" height="20px"><path d="M 25 2 A 2.0002 2.0002 0 1 0 25 6 C 35.517124 6 44 14.482876 44 25 C 44 35.517124 35.517124 44 25 44 C 14.482876 44 6 35.517124 6 25 C 6 19.524201 8.3080175 14.608106 12 11.144531 L 12 15 A 2.0002 2.0002 0 1 0 16 15 L 16 4 L 5 4 A 2.0002 2.0002 0 1 0 5 8 L 9.5253906 8 C 4.9067015 12.20948 2 18.272325 2 25 C 2 37.678876 12.321124 48 25 48 C 37.678876 48 48 37.678876 48 25 C 48 12.321124 37.678876 2 25 2 z"/>
+                </svg>
+              </a>
               <a type="button" id="delete-button" data-index="{{product.id}}"
-                class="delete-button text-decoration-none small">Delete</a>
+                class="delete-button text-decoration-none small">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 24 24">
+                  <path d="M 10 2 L 9 3 L 4 3 L 4 5 L 5 5 L 5 20 C 5 20.522222 5.1913289 21.05461 5.5683594 21.431641 C 5.9453899 21.808671 6.4777778 22 7 22 L 17 22 C 17.522222 22 18.05461 21.808671 18.431641 21.431641 C 18.808671 21.05461 19 20.522222 19 20 L 19 5 L 20 5 L 20 3 L 15 3 L 14 2 L 10 2 z M 7 5 L 17 5 L 17 20 L 7 20 L 7 5 z M 9 7 L 9 18 L 11 18 L 11 7 L 9 7 z M 13 7 L 13 18 L 15 18 L 15 7 L 13 7 z"></path>
+                  </svg>
+              </a>
+              
             </div>
           </div>
         </div>
