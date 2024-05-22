@@ -199,9 +199,7 @@ footer {
     font-weight: 600;
 }
 
-.tab-description {
 
-}
 
 btn {
     color: white;
@@ -231,4 +229,77 @@ btn {
 #sl {
     margin-bottom: 40px;
     margin-top: 10px;
+}
+
+.leftside {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-content: flex-start;
+    position: sticky;
+    top: 40px;
+    margin-left: 8px;
+    max-height: 669px;
+    min-height: 455px;
+}
+
+.ThumbnailListContainer {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    gap: 8px;
+    min-width: 60px;
+    max-width: 60px;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.ThumbnailListContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.HeroImgContainer {
+    border-radius: 8px;
+    overflow:hidden;
+    position: relative;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    top: 0;
+    left: 0px;
+}
+
+.HeroImgItem {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    z-index: -1;
+    max-width: 100%;
+}
+
+.reveal {
+    opacity: 1;
+}
+
+.CarouselBtnsContainer {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.css-1y8c530 {
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    place-items: center;
+    height: 36px;
+    width: 36px;
+    color: black;
+    background-color: rgb(255, 255, 255);
+    border-radius: 999px;    
 }
