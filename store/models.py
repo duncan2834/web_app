@@ -47,21 +47,6 @@ class ProductType(models.Model):
     def __str__(self):
         return self.name
 
-class ProductSpecification(models.Model):
-    """
-    The Product Specification Table gồm product
-    specifiction và features của các productType
-    """
-
-    product_type = models.ForeignKey(ProductType, on_delete=models.RESTRICT)
-    name = models.CharField(verbose_name=_("Name"), help_text=_("Required"), max_length=255)
-
-    class Meta:
-        verbose_name = _("Product Specification")
-        verbose_name_plural = _("Product Specifications")
-
-    def __str__(self):
-        return self.name
 
 class Product(models.Model):
     """
@@ -77,6 +62,7 @@ class Product(models.Model):
     )
     description = models.TextField(verbose_name=_("description"), help_text=_("Not Required"), blank=True)
     slug = models.SlugField(max_length=255)
+    cid = models.CharField(max_length=255)
     regular_price = models.DecimalField(
         verbose_name=_("Regular price"),
         help_text=_("Maximum 999.99"),
@@ -88,8 +74,7 @@ class Product(models.Model):
         max_digits=5,
         decimal_places=2,
     )
-    color = models.CharField(max_length=255)
-    brand = models.CharField(max_length=255, null=True, default=None)
+    color = models.CharField(max_length=255, default='red')
     size = models.CharField(max_length=255)
     discount_price = models.DecimalField(
         verbose_name=_("Discount price"),
@@ -122,26 +107,6 @@ class Product(models.Model):
     def __str__(self):
         return self.title
     
-class ProductSpecificationValue(models.Model):
-    """
-    The Product Specification Value table holds each of the
-    products individual specification or bespoke features.
-    """
-
-    product = models.ForeignKey(Product, on_delete=models.CASCADE) # nếu một product bị xóa, tất cả các mục ProductSpecificationValue liên quan cũng sẽ bị xóa theo
-    specification = models.ForeignKey(ProductSpecification, on_delete=models.RESTRICT)  # xóa PS thì PSV vẫn được giữ lại
-    value = models.CharField(
-        verbose_name=_("value"),
-        help_text=_("Product specification value (maximum of 255 words"),
-        max_length=255,
-    )
-
-    class Meta:
-        verbose_name = _("Product Specification Value")
-        verbose_name_plural = _("Product Specification Values")
-
-    def __str__(self):
-        return self.value
     
 class ProductImage(models.Model):
     """

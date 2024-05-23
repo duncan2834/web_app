@@ -5,61 +5,87 @@
 {% if product %}{{ product.title }}{% else %}Product{% endif %}
 {% endblock %}
 {% block content %}
-
 <div class="container">
   {% if messages %}
-  <div class="alert alert-warning" alert-{{ message.tags }}" role="alert">
+  <div class="alert alert-warning" alert-{{ message.tags }} role="alert">
   {% for message in messages  %}
     {{message|safe}} - <a href="{% url "account:wishlist" %}" class="alert-link">Your Wishlist </a>.
   {% endfor %}
   </div>
   {% endif %}
     <div class="row g-3">
-      <div class="col-md-5 ps-3 col-lg-5 order-md-last p-0 order-1">
-        <div class="d-grid gap-2">
-          <div class="d-flex d-flex-inline justify-content-between">
-            <div><span class="h3">£{{ product.regular_price }}</span>
-              <p class="text-muted">includes tax</p>
-            </div>
-            <div>
-              <label for="select">Qty</label>
-              <select id="select" class="h6 store-select-dropdown">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-              </select>
-            </div>
-          </div>
-          <hr>
-          <button type="button" id="add-button" value="{{product.id}}" class="btn btn-success fw500">Add to
-            basket</button>
-          <a href="{% url "account:user_wishlist" product.id  %}" class="btn btn-light fw500" role="button" aria-disabled="true">Add to Wish List</a>
-        </div>
-      </div>
-      <div class="col-md-7 col-lg-7 p-0">
-        <div class="card mb-3 border-0">
-          <div class="row g-0">
-            <div class="col-md-12">
-              <div class="card-body p-1">
-                <h1 class="mb-0 h2 pe-4 pb-4">{{ product.title }}</h1>
-                <div class="bg-light">
-  
-                  {% for image in product.product_image.all %}
-                  {% if image.is_feature %}
-                  <img class="img-fluid mx-auto d-block" width="200px" alt="Responsive image" src="{{ image.image.url }}"
-                    alt="{{ image.image.alt_text }}">
-                  {% else %}
-                  <img class="img-fluid d-block-inline pt-3" width="100px" alt="Responsive image"
-                    src="{{ image.image.url }}" alt="{{ image.image.alt_text }}">
-                  {% endif %}
-                  {% endfor %}
-  
-                </div>
+      <div class="col-md-5 ps-3 col-lg-5 order-md-last p-0 order-1" style="border-left: 2px solid #d4d4d5;">
+
+            <div style="margin-left: 10px;">
+              <div id="sl">
+                <h1 class="product-tittle">{{ product.title }}</h1>  
+              </div>
+              <div id="sl">
+                <span class="h3">£{{ product.regular_price }}</span>
+                <p class="text-muted">includes tax</p>
+              </div>
+              <div id="sl">
+                <label for="select">Qty</label>
+                <select id="select" class="h6 store-select-dropdown">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+              </div>
+              <div id="sl">
+                <button type="button" id="add-button" value="{{product.id}}" class="btn btn-black fw500" style="width: 35%";>Add to cart</button>
+                <a href="{% url "account:user_wishlist" product.id  %}" class="btn btn-light fw500" role="button" aria-disabled="true" style="width: 35%; margin-left: 20px;">Add to Wishlist</a>
               </div>
             </div>
-          </div>
+
         </div>
+          <hr>
+
+      <div class="col-md-7 col-lg-7 p-0">
+        <div class="leftside">
+
+                  <div id="ThumbnailListContainer" class="ThumbnailListContainer">
+                    {% for image in product.product_image.all %}
+
+                      <div id="Thumbnail-{{ forloop.counter0 }}">
+                        <img class="img-fluid mx-auto d-block" width="60px" alt="Responsive image" src="{{ image.image.url }}"
+                      alt="{{ image.image.alt_text }}">
+                      <h1></h1>
+                      </div>
+                    {% endfor %}
+                  </div>
+                  <div id="HeroImgContainer" class="HeroImgContainer">
+                    {% for image in product.product_image.all %}
+                      <div class="HeroImgItem">
+                        <img class="img-fluid mx-auto d-block" alt="Responsive image" src="{{ image.image.url }}"
+                        alt="{{ image.image.alt_text }}">
+                      </div>
+
+                    {% endfor %}
+                    <div class="CarouselBtnsContainer">
+                      <button class="btn prevBtn" aria-label="Previous carousel button" class="css-1y8c530">
+                        <svg height="12px" width="12px" fill="#000" viewBox="0 0 185.4 300">
+                          <path d="M160.4 300c-6.4 0-12.7-2.5-17.7-7.3L0 150 142.7 7.3c9.8-9.8 25.6-9.8 35.4 0 9.8 9.8 9.8 25.6 0 35.4L70.7 150 178 257.3c9.8 9.8 9.8 25.6 0 35.4-4.9 4.8-11.3 7.3-17.6 7.3z"></path>
+                        </svg>
+                      </button>
+                      <button class="btn nextBtn" aria-label="Next carousel button" class="css-1y8c530">
+                          <svg height="12px" width="12px" fill="#000" viewBox="0 0 185.4 300">
+                            <path d="M7.3 292.7c-9.8-9.8-9.8-25.6 0-35.4L114.6 150 7.3 42.7c-9.8-9.8-9.8-25.6 0-35.4s25.6-9.8 35.4 0L185.4 150 42.7 292.7c-4.9 4.8-11.3 7.3-17.7 7.3-6.4 0-12.7-2.5-17.7-7.3z"></path>
+                          </svg>
+                        </button>
+                        </div>
+                  </div>
+          </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="single-con" >
+        <span class="single" >Description</span>
+      </div>
+
+      <div class="tab-description">
+        <p>{{product.description}}</p>
       </div>
     </div>
 
@@ -80,9 +106,41 @@
                 document.getElementById('cart-qty').innerHTML = json.qty
             },
             error: function (xhr, errmsg, err) {
-
             }
         });
     });
+    const images = document.querySelectorAll('.HeroImgItem');
+    const activeImage = document.querySelector('.HeroImgItem.reveal');
+
+    let currentImageIndex = 0;
+    console.log(images.length);
+    showImage(currentImageIndex)
+
+    function showImage(index) {
+      images.forEach(image => image.classList.remove('reveal'));
+      images[index].classList.add('reveal');
+    }
+
+    function nextImage() {
+      currentImageIndex++;
+      if (currentImageIndex >= images.length) {
+        currentImageIndex = 0;
+      }
+      showImage(currentImageIndex);
+    }
+
+    function prevImage() {
+      currentImageIndex--;
+      if (currentImageIndex < 0) {
+        currentImageIndex = images.length - 1;
+      }
+      showImage(currentImageIndex);
+    }
+
+    const prevBtn = document.querySelector('.prevBtn');
+    const nextBtn = document.querySelector('.nextBtn');
+
+    prevBtn.addEventListener('click', prevImage);
+    nextBtn.addEventListener('click', nextImage);
 </script>
 {% endblock %}

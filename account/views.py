@@ -81,7 +81,7 @@ def account_register(request):
             message = render_to_string('account/registration/account_activation_email.html', {
                 'user': user,
                 'domain': current_site.domain,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                'uid': urlsafe_base64_encode(force_bytes(user.pk)),  # bảo mật an toàn, mã hóa id người dùng
                 'token': account_activation_token.make_token(user),
             })
             user.email_user(subject=subject, message=message)

@@ -29,6 +29,6 @@ urlpatterns = [
     path('payment/', include('payment.urls', namespace= 'payment')),
     path('__debug__/', include(debug_toolbar.urls)),
 ]
-
+# Đảm bảo Django xử lý các tệp media trong chế độ phát triển
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
