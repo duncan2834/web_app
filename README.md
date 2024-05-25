@@ -18,3 +18,7 @@ COMMANDS : (chạy môi trường ảo và install các gói trong requirement)
 - http://127.0.0.1:8000/admin
 - username: dang@a.com 
 - pass: dang
+# STRIPE CÁCH SỬ DỤNG(chạy trong cmd)
+- stripe login
+- stripe listen --forward-to localhost:8000/payment/webhook/
+- 
