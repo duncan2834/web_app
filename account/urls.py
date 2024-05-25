@@ -24,7 +24,7 @@ urlpatterns = [
          name="password_reset_confirm"),
     path('password_reset/password_reset_email_confirm/',
          TemplateView.as_view(template_name="account/password_reset/reset_status.html"), name='password_reset_done'), # đây là sau khi cf email xong thì dẫn đến chỗ này để tbao đã thành công
-    path('password_reset_confirm/Mg/password_reset_complete/',
+    path('password_reset_confirm/<uidb64>/password_reset_complete/',
          TemplateView.as_view(template_name="account/password_reset/reset_status.html"), name='password_reset_complete'),  # sau khi reset password xong thì dẫn đến chỗ này để tbao đã reset thành công
     # User dashboard
     path('dashboard/', views.dashboard, name='dashboard'),    # dẫn người dùng đến dashboard

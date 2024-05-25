@@ -91,7 +91,7 @@
   </div>
 </div>
       <script>
-        $(document).on('click', '.delete-button', function(e) {    // khi click vô button Add to cart đấy thì trả về server data như dưới
+        $(document).on('click', '.delete-button', function(e) {    
             e.preventDefault();
             var prodid = $(this).data('index');    // productid, id của sp t delete
             $.ajax({
