@@ -20,5 +20,6 @@ COMMANDS : (chạy môi trường ảo và install các gói trong requirement)
 - pass: dang
 # STRIPE CÁCH SỬ DỤNG(chạy trong cmd)
 - stripe login
+- sau đấy follow cái đường link trên terminal và đăng nhập nick stripe với tài khoản email: aiguadu@gmail.com,  password: dang28032004. Sau đó allow access và chạy lệnh dưới trên terminal
 - stripe listen --forward-to localhost:8000/payment/webhook/
-- 
+- Và sau đấy chạy như bình thường 
