@@ -18,6 +18,12 @@ class Category(MPTTModel):
     slug = models.SlugField(verbose_name=_("Category safe URL"), max_length=255, unique=True)
     parent = TreeForeignKey("self", on_delete=models.CASCADE, null=True, blank=True, related_name="children")
     is_active = models.BooleanField(default=True)
+    image = models.ImageField(
+        verbose_name=_("image"),
+        help_text=_("Upload a product image"),
+        upload_to="images/brand",
+        default="images/brand/default.png",
+    )
 
     class MPTTMeta:
         order_insertion_by = ["name"]

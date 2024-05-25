@@ -44,28 +44,51 @@
           {% endif %}
         </div>
       </div>
+
       <hr>
-      <div class="">
-        <div>
-          <h1 class="h3">Brand</h1>
-          {% for brand in category %}
-            <h1>alo</h1>
-            <div class="fw-bold">{{ brand.name }}</div>
-          {% endfor %}
+
+      <!-- brand col -->
+      <div class="row">
+        <div class="album py-5">
+          <div class="pb-3">
+            <h1 class="h3">Brand</h1>
+          </div>
+          <div class="row g-1">
+            {% for brand in categories %}
+            <div class="col border-0">
+              <div>
+                <div class="box-image">
+                  <a class="text-dark text-decoration-none"
+                  href="{{ brand.get_absolute_url }}">
+                    <img class="img-fluid" alt="Responsive image" src="{{ brand.image.url }}">
+                  </a>
+                </div>
+              </div>
+                <div class="card-body px-0">
+                  <p class="card-text" style="text-align: center;">
+                    <a class="text-dark text-decoration-none"
+                      href="{{ brand.get_absolute_url }}">{{ brand.name }}</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <h1>{{ brand.images }}</h1>
+            {% endfor %}
+          </div>
         </div>
-        <div>
-          <p></p>
-        </div>
+
         <hr>
+
         <div class="">
           <div>
             <h1 class="h3">Don't Miss</h1>
           </div>
           <div>
             <p></p>
-          </div>
-    </div>
-    </div>
+        </div>
+  </div>
+  </div>
+
 
     
     

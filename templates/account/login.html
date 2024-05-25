@@ -16,12 +16,12 @@
   {{ form.password}}
   <div class="d-grid gap-2">
     <input type="hidden" name="next" value="{{ next }}">
-    <button class="btn btn-primary py-2 mb-4 mt-5 fw-bold" type="submit" value="Log-in">Sign in
+    <button class="btn btn-black py-2 mb-4 mt-5 fw-bold" type="submit" value="Log-in">Sign in
     </button>
   </div>
   <div class="flex-column justify-content-center mx-auto pb-3">
-    <div class="text-center"><a href="{% url "account:register" %}">Create an account</a></div>
-    <div class="text-center"><a href="{% url "account:pwdreset" %}">Forgotten Password?</a></div>
+    <div class="text-center"><a href="{% url "account:register" %}" style="color: black;">Create an account</a></div>
+    <div class="text-center"><a href="{% url "account:pwdreset" %}" style="color: black;">Forgotten Password?</a></div>
   </div>
 </form>
 

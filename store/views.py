@@ -19,3 +19,8 @@ def category_list(request, category_slug=None):
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug, is_active=True)
     return render(request, "store/single.html", {"product": product})
+
+def brand_all(request):
+    return {
+        'categories': Category.objects.all()
+    }   
