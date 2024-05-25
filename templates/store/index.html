@@ -1,71 +1,148 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Store{% endblock %}
 {% block content %}
+<div>
+  <img src= "{% static 'theme.jpg' %}" style="width: 100%; height: auto;">
+</div>
+<div class="colorlib-intro">
   <div class="container">
-    <div>
-      <img >
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h2 class="intro">It started with a simple idea: Create quality, well-designed products that I wanted myself.</h2>
+      </div>
     </div>
-    <div class="container">
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6 img-container">
+      <img src="{% static 'oxford-shoes.jpg' %}" class="img-fluid" alt="Image 1">
+    </div>
+    <div class="col-sm-6 img-container">
+      <img src="{% static 'oxford-shoes2.jpg' %}" class="img-fluid" alt="Image 2">
+    </div>
+  </div>
+</div>
+<div class="colorlib-intro">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h2 class="intro">With everything you want, everything you love</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="colorlib-product">
+    <div class="container-fluid">
       <div class="row">
-        <div class="album py-5">
-          <div class="pb-3">
-            <h1 class="h3">Popular</h1>
-          </div>
-          {% if not products %}
-            <div class="col-12">There are currently no products active</div>
-          {% else %}
-          <div class="row row-cols-3 row-cols-sm-4 row-cols-md-3 g-1">
-            {% for product in products %}
-            <div class="col border-0">
-              <div class="">
-                <div class="box-image">
-                {% for image in product.product_image.all %}
-              {% if image.is_feature%}
-              <a class="text-dark text-decoration-none"
-              href="{{ product.get_absolute_url }}">
-                <img class="img-fluid" alt="Responsive image" src="{{ image.image.url }}"
-                alt="{{ image.image.alt_text }}">
-              </a>
-              
-              {% endif %}
-              {% endfor %}
-                </div>
-                <div class="card-body px-0">
-                  <p class="card-text">
-                    <a class="text-dark text-decoration-none"
-                      href="{{ product.get_absolute_url }}">{{ product.title|slice:":50" }}...</a>
-                  </p>
-                  <div class="fw-bold">£{{product.regular_price}}</div>
-                </div>
-              </div>
+        <div class="col-sm-6 text-center">
+          <div class="featured">
+            <a href="/search/Men" class="featured-img" style="background-image: url({% static 'men-shoes.jpg' %});"></a>
+            <div class="desc">
+              <h2><a href="/search/Men">Shop Men's Collection</a></h2>
             </div>
-            {% endfor %}
           </div>
-          {% endif %}
+        </div>
+        <div class="col-sm-6 text-center">
+          <div class="featured">
+            <a href="/search/Women" class="featured-img" style="background-image: url({% static 'women.jpg' %});"></a>
+            <div class="desc">
+              <h2><a href="/search/Women">Shop Women's Collection</a></h2>
+            </div>
+          </div>
         </div>
       </div>
-      <hr>
-      <div class="">
-        <div>
-          <h1 class="h3">Brand</h1>
-          {% for brand in category %}
-            <h1>alo</h1>
-            <div class="fw-bold">{{ brand.name }}</div>
-          {% endfor %}
-        </div>
-        <div>
-          <p></p>
-        </div>
-        <hr>
-        <div class="">
-          <div>
-            <h1 class="h3">Don't Miss</h1>
-          </div>
-          <div>
-            <p></p>
-          </div>
     </div>
+  </div>
+  <hr>
+  <div class="section">
+    <div class="section-header text-center">
+      <h1 class="display-4 font-weight-bold">Type</h1>
     </div>
+    <div class="colorlib-product">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6 text-center">
+            <div class="featured">
+              <a href="/searchType/Boots" class="featured-img" style="background-image: url({% static 'boots.jpg' %});"></a>
+              <div class="desc">
+                <h2><a href="/searchType/Boots">Boots</a></h2>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 text-center">
+            <div class="featured">
+              <a href="/searchType/Slippers" class="featured-img" style="background-image: url({% static 'slipper.jpg' %});"></a>
+              <div class="desc">
+                <h2><a href="/searchType/Slippers">Slippers</a></h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="colorlib-product">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6 text-center">
+          <div class="featured">
+            <a href="/searchType/Shoes" class="featured-img" style="background-image: url({% static 'shoes.jpg' %});"></a>
+            <div class="desc">
+              <h2><a href="/searchType/Shoes">Shoes</a></h2>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 text-center">
+          <div class="featured">
+            <a href="/searchType/Sandals" class="featured-img" style="background-image: url({% static 'sandals.jpeg' %});"></a>
+            <div class="desc">
+              <h2><a href="/searchType/Sandals">Sandals</a></h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <hr>
+  <div class="section">
+    <div class="section-header text-center">
+      <h1 class="display-4 font-weight-bold">ALL PRODUCTS</h1>
+    </div>
+    {% if not products %}
+      <div class="col-12 alert alert-warning">There are currently no products active</div>
+    {% else %}
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+        {% for product in products %}
+          <div class="col">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="box-image">
+                {% for image in product.product_image.all %}
+                  {% if image.is_feature %}
+                    <a class="text-dark text-decoration-none" href="{{ product.get_absolute_url }}">
+                      <img class="card-img-top img-fluid" alt="{{ image.image.alt_text }}" src="{{ image.image.url }}">
+                    </a>
+                  {% endif %}
+                {% endfor %}
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">
+                  <a class="text-dark text-decoration-none" href="{{ product.get_absolute_url }}">
+                    {{ product.title|slice:":50" }}...
+                  </a>
+                </h5>
+                <div class="fw-bold text-primary">£{{ product.regular_price }}</div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>
     
     
 {% endblock %}

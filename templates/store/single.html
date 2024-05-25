@@ -17,15 +17,21 @@
       <div class="col-md-5 ps-3 col-lg-5 order-md-last p-0 order-1" style="border-left: 2px solid #d4d4d5;">
         
             <div style="margin-left: 10px;">
-              <div id="sl">
-                <h1 class="product-tittle">{{ product.title }}</h1>  
+              <div class="product-info">
+                <h1 class="product-title">{{ product.title }}</h1>
+                <div class="product-detail">
+                  <h2 class="product-attribute">Color: {{ product.color }}</h2>
+                </div>
+                <div class="product-detail">
+                  <h2 class="product-attribute">Size: {{ product.size }}</h2>
+                </div>
+                <div class="product-price">
+                  <span class="price">£{{ product.regular_price }}</span>
+                  <p class="text-muted">includes tax</p>
+                </div>
               </div>
               <div id="sl">
-                <span class="h3">£{{ product.regular_price }}</span>
-                <p class="text-muted">includes tax</p>
-              </div>
-              <div id="sl">
-                <label for="select">Qty</label>
+                <label for="select" class="quantity-label">Quantity</label>
                 <select id="select" class="h6 store-select-dropdown">
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -49,7 +55,7 @@
                     {% for image in product.product_image.all %}
                     
                       <div id="Thumbnail-{{ forloop.counter0 }}">
-                        <img class="img-fluid mx-auto d-block" width="60px" alt="Responsive image" src="{{ image.image.url }}"
+                        <img class="img-fluid mx-auto d-block" width="120px" alt="Responsive image" src="{{ image.image.url }}"
                       alt="{{ image.image.alt_text }}">
                       <h1></h1>
                       </div>
@@ -58,7 +64,7 @@
                   <div id="HeroImgContainer" class="HeroImgContainer">
                     {% for image in product.product_image.all %}
                       <div class="HeroImgItem">
-                        <img class="img-fluid mx-auto d-block" alt="Responsive image" src="{{ image.image.url }}"
+                        <img class="img-fluid mx-auto d-block" style="width: 400px; height: auto" alt="Responsive image" src="{{ image.image.url }}"
                         alt="{{ image.image.alt_text }}">
                       </div>
                         
@@ -88,8 +94,31 @@
         <p>{{product.description}}</p>
       </div>
     </div>
-    
-
+    <hr>
+    <div class="row">
+      <div class="section-header text-center">
+        <h1 class="display-4 font-weight-bold">YOU MAY LIKE</h1>
+      </div>
+      <hr />
+    </div>
+    <div class="section">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+      {% for cid, values in recommended.items %}
+      <div class="col">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="box-image">
+            <a class="text-dark text-decoration-none"><img src="{{ MEDIA_URL }}{{ values.0 }}" alt="Recommended Product {{ cid }}"></a> 
+          </div>
+            <div class="card-body">
+              <h5 class="card-title">
+                <a class="text-dark text-decoration-none"href="{{ values.1.get_absolute_url }}">{{ values.1.title|slice:":50" }}...</a>
+              </h5>
+            </div>
+        </div>
+      </div>
+      {% endfor %}
+      </div>
+    </div>
 <script>
     $(document).on('click', '#add-button', function(e) {    // khi click vô button Add to cart đấy thì trả về server data như dưới
         e.preventDefault();

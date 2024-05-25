@@ -24,13 +24,13 @@ class CustomAccountManager(BaseUserManager):
 
         return self.create_user(email, name, password, **other_fields)
 
-    def create_user(self, email, name, password, **other_fields):
+    def create_user(self, email, user_name, password, **other_fields):
 
         if not email:
             raise ValueError(_('You must provide an email address'))
 
         email = self.normalize_email(email)
-        user = self.model(email=email, name=name,
+        user = self.model(email=email, user_name=user_name,
                           **other_fields)
         user.set_password(password)
         user.save()
@@ -39,7 +39,7 @@ class CustomAccountManager(BaseUserManager):
 
 class Customer(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('email address'), unique=True)
-    name = models.CharField(max_length=150)
+    user_name = models.CharField(max_length=150)
     mobile = models.CharField(max_length=20, blank=True)
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
@@ -49,7 +49,7 @@ class Customer(AbstractBaseUser, PermissionsMixin):
     objects = CustomAccountManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['name']
+    REQUIRED_FIELDS = ['user_name']
 
     class Meta:
         verbose_name = "Accounts"
@@ -65,7 +65,7 @@ class Customer(AbstractBaseUser, PermissionsMixin):
         )
 
     def __str__(self):
-        return self.name
+        return self.user_name
 
 class Address(models.Model):
     """
@@ -91,4 +91,19 @@ class Address(models.Model):
 
     def __str__(self):
         return "Address"
+    
+class ProblemReport(models.Model):
+    order_number = models.CharField(max_length=100)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.order_number
+
+class Review(models.Model):
+    product_name = models.CharField(max_length=255)
+    review_text = models.TextField()
+    rating = models.IntegerField()
+
+    def __str__(self):
+        return self.product_name
 

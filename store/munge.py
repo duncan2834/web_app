@@ -17,6 +17,6 @@ class Munger():
         self.similarity_matrix = similarity_matrix
         img_paths = mat4py.loadmat('image-path.mat')
         img_paths = list(map(lambda x: x[0], img_paths['imagepath']))  # list chứa các path ảnh
-        img_paths = img_paths[:100]  # chỉ lấy 10000 link đầu
+        img_paths = img_paths[:100]  # chỉ lấy 100 link đầu
         self.df['img_path'] = img_paths
         # init có (df bao gồm metadata + cột combine và imgpath, gồm feature_matrix và similarity_matrix)

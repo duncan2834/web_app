@@ -15,7 +15,7 @@ class Category(MPTTModel):
         max_length=255,
         unique=True,
     )
-    slug = models.SlugField(verbose_name=_("Category safe URL"), max_length=255, unique=True)
+    slug = models.SlugField(verbose_name=_("Category safe URL"), max_length=255, unique=True, default=None)
     parent = TreeForeignKey("self", on_delete=models.CASCADE, null=True, blank=True, related_name="children")
     is_active = models.BooleanField(default=True)
 
@@ -36,16 +36,23 @@ class ProductType(models.Model):
     """
     ProductType Table build các kiểu sản phẩm khác nhau 
     """
-
+    slug = models.SlugField(verbose_name=_("Type safe URL"), max_length=255, unique=True, default=None)
+    parent = TreeForeignKey("self", on_delete=models.CASCADE, null=True, blank=True, related_name="children")
     name = models.CharField(verbose_name=_("Product Name"), help_text=_("Required"), max_length=255, unique=True)
     is_active = models.BooleanField(default=True)
-
+    
+    class MPTTMeta:
+        order_insertion_by = ["name"]
+        
     class Meta:
         verbose_name = _("Product Type")
         verbose_name_plural = _("Product Types")
 
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse("store:type_list", args=[self.slug])
 
 
 class Product(models.Model):

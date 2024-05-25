@@ -1,4 +1,96 @@
+/* Tạo kiểu cho phần tử select */
 .store-select-dropdown {
-    width:50px;
-  height:40px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  border-radius: 5px;
+  width: 100px; /* Bạn có thể điều chỉnh chiều rộng theo nhu cầu */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns="http://www.w3.org/2000/svg" width="4" height="5" viewBox="0 0 4 5"%3E%3Cpath fill="%23333" d="M2 0L0 2h4zm0 5L0 3h4z"/%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 10px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.store-select-dropdown:hover {
+  border-color: #888;
+}
+
+.store-select-dropdown:focus {
+  border-color: #555;
+}
+
+/* Đảm bảo rằng phần tử option được định dạng đẹp */
+.store-select-dropdown option {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Đặt CSS cho thẻ h6 nếu cần thiết */
+.h6 {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+}
+/* Đặt các kiểu chung cho phần thông tin sản phẩm */
+.product-info {
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.product-title {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.product-detail {
+  margin-bottom: 10px;
+}
+
+.product-attribute {
+  font-size: 1.5em;
+  color: #555;
+  margin: 0;
+}
+
+.product-price {
+  margin-top: 20px;
+}
+
+.price {
+  font-size: 2em;
+  font-weight: bold;
+  color: #e60000;
+}
+
+.text-muted {
+  font-size: 0.9em;
+  color: #999;
+  margin: 5px 0 0;
+}
+.tab-description p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: #666;
+  margin: 0;
+}
+.quantity-label {
+  font-size: 1.2em; /* Kích thước chữ */
+  font-weight: bold; /* Chữ đậm */
+  color: #333; /* Màu chữ */
+  margin-bottom: 5px; /* Khoảng cách dưới */
+  display: block; /* Hiển thị dưới dạng block để đảm bảo khoảng cách dưới hoạt động */
 }

@@ -11,7 +11,7 @@ from django.contrib import messages
 from orders.views import user_orders
 from store.models import Product
 from .forms import RegistrationForm, UserEditForm, UserAddressForm
-from .models import Customer, Address
+from .models import Customer, Address, ProblemReport, Review
 from .tokens import account_activation_token
 
 
@@ -118,6 +118,13 @@ def view_address(request):
 
 
 @login_required
+def view_orders(request):
+    orders = user_orders(request)
+    return render(request,
+                  'account/dashboard/orders.html',
+                  {'section': 'profile', 'orders': orders})
+
+@login_required
 def add_address(request):
     if request.method == "POST":
         address_form = UserAddressForm(data=request.POST)
@@ -153,3 +160,24 @@ def set_default(request, id):   # đặt địa chỉ làm địa chỉ mặc đ
     Address.objects.filter(customer=request.user, default=True).update(default=False)
     Address.objects.filter(pk=id, customer=request.user).update(default=True)
     return redirect("account:addresses") 
+
+@login_required
+def submit_problem(request):
+    if request.method == 'POST':
+        order_number = request.POST['orderNumber']
+        description = request.POST['problemDescription']
+        # Lưu trữ dữ liệu vào cơ sở dữ liệu
+        problem = ProblemReport(order_number=order_number, description=description)
+        problem.save()
+        return HttpResponse('Thank you for reporting the problem!')
+
+@login_required
+def submit_review(request):
+    if request.method == 'POST':
+        product_name = request.POST['productName']
+        review_text = request.POST['reviewText']
+        rating = request.POST['rating']
+        # Lưu trữ dữ liệu vào cơ sở dữ liệu
+        review = Review(product_name=product_name, review_text=review_text, rating=rating)
+        review.save()
+        return HttpResponse('Thank you for your review!')

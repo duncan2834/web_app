@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render
-from .models import Category, Product
+from .models import Category, Product, ProductType
 from .munge import Munger
 from .recommender import recommend_products
 from django.conf import settings
@@ -15,6 +15,12 @@ def category_list(request, category_slug=None):
         category__in=Category.objects.get(name=category_slug).get_descendants(include_self=True)  # Truy vấn tất cả các sản phẩm thuộc danh mục và các danh mục con của danh mục được chỉ định bởi slug.
     )
     return render(request, "store/category.html", {"category": category, "products": products})
+
+def type_list(request, type_slug=None):
+    type = get_object_or_404(ProductType, slug=type_slug)
+    products = Product.objects.filter(product_type = type)
+    # Truy vấn tất cả các sản phẩm thuộc danh mục và các danh mục con của danh mục được chỉ định bởi slug.
+    return render(request, "store/type.html", {"type": type, "products": products})
 
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug, is_active=True) # lấy sản phẩm có slug = slug

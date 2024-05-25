@@ -28,6 +28,7 @@ urlpatterns = [
          TemplateView.as_view(template_name="account/password_reset/reset_status.html"), name='password_reset_complete'),  # sau khi reset password xong thì dẫn đến chỗ này để tbao đã reset thành công
     # User dashboard
     path('dashboard/', views.dashboard, name='dashboard'),    # dẫn người dùng đến dashboard
+    path('orders/', views.view_orders, name='orders'),    # dẫn người dùng đến dashboard
     path('profile/edit/', views.edit_details, name='edit_details'),  # dẫn đến chỗ edit profile người dùng
     path('profile/delete_user/', views.delete_user, name='delete_user'),   # dẫn đến chỗ delele user
     path('profile/delete_confirm/', TemplateView.as_view(template_name="account/dashboard/delete_confirm.html"), name='delete_confirmation'),
@@ -40,4 +41,6 @@ urlpatterns = [
     # Wishlist
     path("wishlist", views.wishlist, name="wishlist"),
     path("wishlist/add_to_wishlist/<int:id>", views.add_to_wishlist, name="user_wishlist"),
+    path('submit-problem/', views.submit_problem, name='submit_problem'),
+    path('submit-review/', views.submit_review, name='submit_review'),
 ]

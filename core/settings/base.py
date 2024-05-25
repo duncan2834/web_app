@@ -71,7 +71,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'store.context_processors.categories', # access categories qua page
-                'cart.context_processors.cart'  # templates access được cái context_processor
+                'cart.context_processors.cart',  # templates access được cái context_processor
+                'store.context_processors.types',
             ],
         },
     },

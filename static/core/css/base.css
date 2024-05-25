@@ -1,7 +1,7 @@
 body {
     background-color: #fffefe;
+    font-family: "Montserrat", Arial, sans-serif;
 }
-
 /* Bootstrap Over-ride */
 @media (min-width: 1000px){
     .container{
@@ -287,3 +287,170 @@ btn {
     background-color: rgb(255, 255, 255);
     border-radius: 999px;    
 }
+
+.section {
+    margin-bottom: 2rem;
+  }
+.section-header {
+margin-bottom: 1rem;
+}
+.box-image img {
+    max-height: 200px;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 5px;
+  }
+  
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  
+  .card-body {
+    padding-top: 0.5rem;
+  }
+  
+  .brand-item {
+    background-color: #f8f9fa;
+    transition: transform 0.3s;
+  }
+  
+  .brand-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .alert-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid #ffeeba;
+    border-radius: 0.25rem;
+  }
+.colorlib-intro {
+    padding-bottom: 0;
+    padding: 7em 0;
+    clear: both;
+}
+.intro {
+    font-size: 40px;
+    font-weight: 700;
+    font-family: "Montserrat", Arial, sans-serif;
+    margin-bottom: 0; }
+.row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px; }
+.colorlib-product {
+    padding: 7em 0;
+    clear: both; }
+
+.featured {
+    width: 100%; }
+    .featured .featured-img {
+        height: 500px;
+        display: block;
+        margin-bottom: 20px;
+        padding: 2em 1em; }
+        .featured .featured-img h2 {
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 40px; }
+        .featured .featured-img.featured-img-2 {
+        height: 400px; }
+    .featured .desc h2 {
+        font-size: 40px; }
+        .featured .desc h2 a {
+        text-decoration: none;
+        font-family: "Montserrat", Arial, sans-serif;
+        font-weight: bold;
+        color: #000; 
+        transition: color 0.3s ease;}
+
+.featured-img {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.featured .desc h2 a:hover {
+    color: #720e54; /* Màu chữ khi hover */
+}
+
+.h1 {
+    font-family: "Montserrat", Arial, sans-serif;
+}
+.section-header h1 {
+    font-family: 'Montserrat', Arial, sans-serif; /* Sử dụng font Montserrat */
+    font-size: 3rem; /* Tăng kích thước chữ */
+    font-weight: bold; /* Làm đậm chữ */
+    text-transform: uppercase; /* Chuyển chữ thường thành chữ in hoa */
+    color: #333; /* Đổi màu chữ nếu cần */
+  }
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+.img-fluid {
+    max-width: 100%;
+    height: auto; }
+
+/* Đổi font và kiểu chữ cho các từ trong thẻ a */
+.navbar-nav .nav-link {
+    font-family: "Montserrat", Arial, sans-serif; /* Đổi font-family */
+    font-weight: 500; /* Đặt độ đậm của chữ */
+    text-transform: uppercase; /* Chuyển chữ thành in hoa */
+    letter-spacing: 1px; /* Khoảng cách giữa các chữ */
+    color: #333; /* Màu chữ */
+}
+
+/* Đổi màu chữ khi rê chuột vào */
+.navbar-nav .nav-link:hover {
+    color: #555; /* Màu chữ khi rê chuột vào */
+}
+
+/* Đổi kiểu chữ cho dropdown menu */
+.dropdown-menu .dropdown-item {
+    font-family: "Montserrat", Arial, sans-serif; /* Đổi font-family */
+    font-weight: 400; /* Đặt độ đậm của chữ */
+    text-transform: none; /* Loại bỏ việc chuyển chữ thành in hoa */
+    letter-spacing: 0; /* Không thay đổi khoảng cách giữa các chữ */
+    color: #333; /* Màu chữ */
+}
+
+/* Đổi màu chữ khi rê chuột vào */
+.dropdown-menu .dropdown-item:hover {
+    color: #de144d92; /* Màu chữ khi rê chuột vào */
+}
+.wishlist-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .wishlist-card {
+    border: 1px solid #ddd;
+    transition: box-shadow 0.3s ease;
+  }
+  .wishlist-card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  .wishlist-img {
+    max-width: 135px;
+  }
+  .wishlist-card-title {
+    font-weight: bold;
+  }
+  .wishlist-card-text {
+    color: #555;
+  }
+  .wishlist-card-price {
+    font-size: 1.2rem;
+    color: #333;
+  }
+  .wishlist-btn {
+    font-weight: 500;
+  }
+

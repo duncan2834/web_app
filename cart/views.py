@@ -37,6 +37,6 @@ def cart_update(request):
         product_qty = int(request.POST.get('productqty'))
         cart.update(product= product_id, qty= product_qty)
         cartqty = cart.__len__()  # tổng số item trong cart(sau khi delete do có lệnh delete phía trên rồi)
-        carttotal = cart.get_total_price() # tổng tiền(sau khi delete)
+        carttotal = cart.get_subtotal_price() # tổng tiền(sau khi delete)
         response = JsonResponse({'qty': cartqty, 'subtotal': carttotal})
         return response      # phải có return response ko là n ko cập nhật gì hết
