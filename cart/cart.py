@@ -5,7 +5,7 @@ from django.conf import settings
 
 class Cart():
     """
-    A base Cart class, providing some default bahaviors that can be inherited or overrided, as necessary.
+    A base Cart class, providing some default behaviors that can be inherited or overrided, as necessary.
     """
     
     def __init__(self, request):   # ini object(default)
@@ -29,7 +29,7 @@ class Cart():
         
     def delete(self, product):
         # delete item out of session
-        product_id= str(product)   #biến là product nhưng mà giá trị truyền vào từ views chỗ gọi hàm là productID
+        product_id= str(product)   #biến là product nhưng mà giá trị truyền vào từ views chỗ gọi hàm productID
         if product_id in self.cart:
             del self.cart[product_id]   
             self.save() 
@@ -48,7 +48,7 @@ class Cart():
         cart = self.cart.copy()   # copy cái cart bây giờ 
         
         for product in products:
-            cart[str(product.id)]['product'] = product   # tạo 1 key product cho cái copy cart đấy rồi value là data của sản phẩm
+            cart[str(product.id)]['product'] = product   # tạo 1 key product cho cái copy cart rồi value là data của sản phẩm
              
         for item in cart.values():    # values là value của key trong dict
             item['price'] = Decimal(item['price'])
